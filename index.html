@@ -162,6 +162,17 @@
         </div>
         <p id="zusammenfassung" class="zusammenfassung" aria-live="polite"></p>
         <ul id="probleme" class="probleme" aria-live="polite"></ul>
+        <div id="lizenz" class="lizenz" hidden>
+          <p id="lizenz-status"></p>
+          <p><a id="lizenz-kaufen" class="knopf zweit" href="#" hidden>Saisonlizenz kaufen</a></p>
+          <form id="lizenz-form" class="lizenz-form">
+            <label>Lizenzschlüssel aus der Kauf-E-Mail
+              <input id="lizenz-eingabe" autocomplete="off" spellcheck="false" placeholder="KH1-…">
+            </label>
+            <button class="knopf zweit" type="submit">Freischalten</button>
+          </form>
+          <p id="lizenz-meldung" class="meldung" role="status"></p>
+        </div>
         <div class="aktionen">
           <button type="button" id="alle-pdf" class="knopf">Alle als eine PDF-Datei herunterladen</button>
           <button type="button" id="alle-zip" class="knopf zweit">Jede einzeln herunterladen (ZIP)</button>
