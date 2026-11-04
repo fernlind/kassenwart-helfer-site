@@ -101,7 +101,7 @@ p { margin: 0 0 1em; }
   border-right: 1.5px solid var(--rand);
 }
 .marke::before { width: 6px; height: 30px; }
-.kopf nav { display: flex; gap: 20px; font-size: 15.5px; }
+.kopf nav { display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 15.5px; }
 .kopf nav a { color: var(--tinte-leise); text-decoration: none; }
 .kopf nav a:hover { color: var(--stempel); text-decoration: underline; }
 
@@ -344,9 +344,15 @@ input::placeholder, textarea::placeholder { color: var(--tinte-leise); opacity: 
 }
 .fuss a { margin-right: 18px; }
 
-/* Rechtstexte */
+/* Rechtstexte und Ratgeber */
+.text ul, .text ol { padding-left: 1.3em; }
+.text li { margin-bottom: 0.5em; }
+.text .lead { font-size: 19px; }
+.hinweisbox { margin: 36px 0; padding: 20px 22px; background: var(--blatt); border-left: 4px solid var(--stempel); }
+.hinweisbox p:last-child { margin-bottom: 0; }
+.stand { margin-top: 40px; font-size: 14.5px; color: var(--tinte-leise); }
 .text { max-width: 46em; margin: 0 auto; padding: 24px var(--gutter) 64px; }
-.text h1 { font-size: 44px; margin: 12px 0 24px; }
+.text h1 { font-size: clamp(30px, 6vw, 44px); margin: 12px 0 24px; overflow-wrap: break-word; hyphens: auto; }
 .text h2 { font-size: 26px; margin: 32px 0 10px; }
 
 @media (max-width: 860px) {
