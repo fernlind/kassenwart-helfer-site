@@ -33,7 +33,7 @@
     <section class="einstieg" aria-labelledby="titel">
       <div>
         <h1 id="titel">Zuwendungsbestätigungen für Ihren Verein, direkt aus dem Kontoauszug</h1>
-        <p class="lead">Laden Sie die Umsätze des Vereinskontos als CSV-Datei, wählen Sie die Spenden aus und ergänzen Sie die Anschriften. Der Kassenwart-Helfer erstellt daraus Einzel- und Sammelbestätigungen als druckfertige PDF-Dateien.</p>
+        <p class="lead">Laden Sie die Umsätze des Vereinskontos als CSV- oder Excel-Datei, wählen Sie die Spenden aus und ergänzen Sie die Anschriften. Der Kassenwart-Helfer erstellt daraus Einzel- und Sammelbestätigungen als druckfertige PDF-Dateien.</p>
         <ul class="fakten">
           <li><strong>Amtlicher Wortlaut.</strong> Nach den Mustern 034122 und 034132 der Finanzverwaltung (BMF-Schreiben vom 7.11.2013), Betrag in Ziffern und Worten.</li>
           <li><strong>Ihre Daten bleiben bei Ihnen.</strong> Alles läuft in diesem Browser. Kontoauszüge und Anschriften werden nirgendwohin übertragen.</li>
@@ -103,10 +103,10 @@
       <section class="schritt" id="zuwendungen" aria-labelledby="zuwendungen-titel">
         <span class="nr" aria-hidden="true">2</span>
         <h2 id="zuwendungen-titel">Zuwendungen einlesen</h2>
-        <p class="erklaerung">Exportieren Sie im Online-Banking die Umsätze des Vereinskontos für das ganze Jahr als CSV-Datei, meist unter „Umsätze“ und „Exportieren“. Mehrere Dateien sind möglich, etwa für zwei Konten.</p>
+        <p class="erklaerung">Exportieren Sie im Online-Banking die Umsätze des Vereinskontos für das ganze Jahr als CSV- oder Excel-Datei, meist unter „Umsätze“ und „Exportieren“. Mehrere Dateien sind möglich, etwa für zwei Konten.</p>
         <label class="ablage" id="ablage-konto">
-          <input type="file" id="datei-konto" accept=".csv,.txt,text/csv" multiple>
-          <span class="ablage-titel">Kontoauszug als CSV-Datei wählen</span>
+          <input type="file" id="datei-konto" accept=".csv,.txt,.xlsx,text/csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" multiple>
+          <span class="ablage-titel">Kontoauszug als CSV- oder Excel-Datei wählen</span>
           <span class="ablage-text">oder die Datei hierher ziehen</span>
         </label>
         <p class="nebenbei">Noch keine Datei zur Hand? <button type="button" id="beispiel" class="leise">Mit Beispieldaten ausprobieren</button></p>
@@ -143,7 +143,7 @@
         <h2 id="spender-titel">Spender und Anschriften prüfen</h2>
         <p class="erklaerung">Bestätigen Sie nur Spenden und, wo zulässig, Mitgliedsbeiträge. Zahlungen mit Gegenleistung wie Startgelder, Kursgebühren, Eintritt oder Sponsoring gehören nicht dazu. Kontoauszüge enthalten keine Anschriften: Tragen Sie sie hier ein oder laden Sie Ihre Mitgliederliste.</p>
         <div class="werkzeuge">
-          <label class="knopf zweit klein">Mitgliederliste laden (CSV)<input type="file" id="datei-mitglieder" accept=".csv,.txt,text/csv" class="unsichtbar"></label>
+          <label class="knopf zweit klein">Mitgliederliste laden (CSV oder Excel)<input type="file" id="datei-mitglieder" accept=".csv,.txt,.xlsx,text/csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" class="unsichtbar"></label>
           <label class="wahl"><input type="checkbox" id="merken"> <span>Anschriften in diesem Browser merken</span></label>
           <label class="suche">Suchen <input type="search" id="suche"></label>
         </div>
@@ -196,7 +196,7 @@
       </details>
       <details>
         <summary>Welche Kontoauszüge kann ich laden?</summary>
-        <p>Die CSV-Exporte der Umsätze, wie sie die meisten Banken anbieten, zum Beispiel Sparkassen, Volks- und Raiffeisenbanken, ING oder DKB. Der Kassenwart-Helfer erkennt Datum, Name, Betrag und Verwendungszweck selbst. Falls eine Spalte falsch erkannt wird, können Sie sie nach dem Laden unter dem Dateinamen selbst zuordnen.</p>
+        <p>Die CSV- oder Excel-Exporte (.xlsx) der Umsätze, wie sie die meisten Banken anbieten, zum Beispiel Sparkassen, Volks- und Raiffeisenbanken, ING oder DKB. Der Kassenwart-Helfer erkennt Datum, Name, Betrag und Verwendungszweck selbst. Falls eine Spalte falsch erkannt wird, können Sie sie nach dem Laden unter dem Dateinamen selbst zuordnen.</p>
       </details>
       <details>
         <summary>Wann gibt es eine Einzel-, wann eine Sammelbestätigung?</summary>
