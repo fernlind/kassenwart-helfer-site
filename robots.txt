@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /vorschau/
 
 Sitemap: https://kassenwart-helfer.de/sitemap.xml
