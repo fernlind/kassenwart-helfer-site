@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zuwendungsbestätigung erstellen: amtliches Muster, direkt aus dem Kontoauszug | Kassenwart-Helfer</title>
+  <meta name="description" content="Spendenbescheinigungen für Ihren Verein nach amtlichem Muster: Kontoauszug als CSV laden, Spenden prüfen, Einzel- und Sammelbestätigungen als PDF erstellen. Ohne Anmeldung, die Daten bleiben in Ihrem Browser.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="canonical" href="https://kassenwart-helfer.de/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="Kassenwart-Helfer">
+  <meta property="og:title" content="Zuwendungsbestätigungen für Ihren Verein, direkt aus dem Kontoauszug">
+  <meta property="og:description" content="Einzel- und Sammelbestätigungen nach amtlichem Muster als PDF. Ohne Anmeldung, die Daten bleiben in Ihrem Browser.">
+  <meta property="og:url" content="https://kassenwart-helfer.de/">
+  <meta property="og:image" content="https://kassenwart-helfer.de/beispiel.png">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../style.css">
+  <meta name="robots" content="noindex, nofollow">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <header class="kopf">
+    <a class="marke" href="../">Kassenwart-Helfer</a>
+    <nav aria-label="Seiten">
+      <a href="../spendenbescheinigung-verein.html">Ratgeber</a>
+      <a href="#fragen">Fragen</a>
+      <a href="../datenschutz.html">Datenschutz</a>
+      <a href="../impressum.html">Impressum</a>
+    </nav>
+  </header>
+
+  <main>
+    <p class="meldung vorschau-hinweis">Vorschau der Bezahlversion, nicht öffentlich verlinkt. Ohne Lizenz sind hier höchstens 5 Bestätigungen möglich. Zum Ausprobieren der Freischaltung: <a href="https://kassenwart-helfer.de/vorschau/#lizenz=KH1-AQfqAAAAAdtBmBCvi0QfuiF1XZhhuyjVIr5oXO9QVk_vZYuJAldZB8-xkU2qKcG56U8Y107XbXXDow6GaMoqFZvSNhGeVAE">Testschlüssel öffnen</a>. Der Kaufen-Knopf führt in der Vorschau noch nirgendwohin.</p>
+    <section class="einstieg" aria-labelledby="titel">
+      <div>
+        <h1 id="titel">Zuwendungsbestätigungen für Ihren Verein, direkt aus dem Kontoauszug</h1>
+        <p class="lead">Laden Sie die Umsätze des Vereinskontos als CSV-Datei, wählen Sie die Spenden aus und ergänzen Sie die Anschriften. Der Kassenwart-Helfer erstellt daraus Einzel- und Sammelbestätigungen als druckfertige PDF-Dateien.</p>
+        <ul class="fakten">
+          <li><strong>Amtlicher Wortlaut.</strong> Nach den Mustern 034122 und 034132 der Finanzverwaltung (BMF-Schreiben vom 7.11.2013), Betrag in Ziffern und Worten.</li>
+          <li><strong>Ihre Daten bleiben bei Ihnen.</strong> Alles läuft in diesem Browser. Kontoauszüge und Anschriften werden nirgendwohin übertragen.</li>
+          <li><strong>Sammelbestätigung mit Anlage.</strong> Mehrere Spenden eines Jahres auf einer Bestätigung, jede Zuwendung einzeln aufgeführt.</li>
+        </ul>
+        <a class="knopf" href="#verein">Bestätigungen erstellen</a>
+      </div>
+      <figure class="beleg">
+        <a href="../beispiel.pdf"><img src="../beispiel.png" width="620" height="877" alt="Beispiel: Sammelbestätigung über Geldzuwendungen eines Sportvereins nach amtlichem Muster"></a>
+        <figcaption><a href="../beispiel.pdf">Beispiel als PDF ansehen</a></figcaption>
+      </figure>
+    </section>
+
+    <noscript><p class="meldung fehler">Der Kassenwart-Helfer braucht JavaScript. Bitte aktivieren Sie es für diese Seite.</p></noscript>
+
+    <div class="kassenbuch">
+      <section class="schritt" id="verein" aria-labelledby="verein-titel">
+        <span class="nr" aria-hidden="true">1</span>
+        <h2 id="verein-titel">Ihr Verein</h2>
+        <p class="erklaerung">Die Angaben finden Sie auf dem Freistellungsbescheid des Finanzamts.</p>
+        <form id="form-verein" class="felder" autocomplete="off">
+          <label class="breit">Name des Vereins
+            <input name="name" placeholder="Turnverein Musterstadt 1898 e. V.">
+          </label>
+          <label>Straße und Hausnummer
+            <input name="strasse" placeholder="Am Sportplatz 3">
+          </label>
+          <label>PLZ und Ort
+            <input name="plzOrt" placeholder="12345 Musterstadt">
+          </label>
+          <fieldset class="breit">
+            <legend>Art des Bescheids</legend>
+            <label class="wahl"><input type="radio" name="variante" value="freistellung" checked> <span>Freistellungsbescheid oder Anlage zum Körperschaftsteuerbescheid</span></label>
+            <label class="wahl"><input type="radio" name="variante" value="feststellung"> <span>Feststellungsbescheid nach § 60a AO (meist bei neu gegründeten Vereinen)</span></label>
+            <span class="hilfe">Haben Sie beides, gilt nur der Freistellungsbescheid (§ 63 Abs. 5 AO).</span>
+          </fieldset>
+          <label>Finanzamt
+            <input name="finanzamt" placeholder="Musterstadt">
+          </label>
+          <label>Steuernummer
+            <input name="steuernummer" placeholder="12/345/67890">
+          </label>
+          <label>Datum des Bescheids
+            <input type="date" name="bescheidDatum">
+          </label>
+          <label data-nur="freistellung">Letzter Veranlagungszeitraum
+            <input name="veranlagungszeitraum" placeholder="2021 bis 2023">
+            <span class="hilfe">Die Jahre, für die das Finanzamt den Verein zuletzt geprüft hat. Sie stehen oben auf dem Freistellungsbescheid.</span>
+          </label>
+          <label class="breit">Begünstigte Zwecke, wie im Bescheid
+            <textarea name="zwecke" rows="2" placeholder="des Sports (§ 52 Abs. 2 Satz 1 Nr. 21 AO)"></textarea>
+            <span class="hilfe">Der Text steht auf der Bestätigung hinter dem Wort „Förderung“, also zum Beispiel „des Sports“ oder „der Jugendhilfe“.</span>
+          </label>
+          <label class="wahl breit"><input type="checkbox" name="freizeitzwecke">
+            <span>Unser Verein fördert (auch) Sport, kulturelle Betätigungen, die in erster Linie der Freizeitgestaltung dienen, Heimatpflege und Heimatkunde oder Zwecke nach § 52 Abs. 2 Satz 1 Nr. 23 AO, etwa Tierzucht, Kleingärtnerei, Brauchtum und Karneval, Amateurfunk, Modellflug oder Hundesport.
+              <span class="hilfe">Dann sind Mitgliedsbeiträge steuerlich nicht abziehbar (§ 10b Abs. 1 Satz 8 EStG). Der Kassenwart-Helfer bestätigt sie nicht und kreuzt den entsprechenden Satz auf der Bestätigung an.</span>
+            </span>
+          </label>
+          <label>Ort der Unterschrift
+            <input name="ort" placeholder="Musterstadt">
+          </label>
+          <label class="wahl breit"><input type="checkbox" id="verein-merken"> <span>Vereinsangaben in diesem Browser speichern, damit sie beim nächsten Besuch wieder da sind</span></label>
+        </form>
+        <p id="verein-meldung" class="meldung" role="status"></p>
+      </section>
+
+      <section class="schritt" id="zuwendungen" aria-labelledby="zuwendungen-titel">
+        <span class="nr" aria-hidden="true">2</span>
+        <h2 id="zuwendungen-titel">Zuwendungen einlesen</h2>
+        <p class="erklaerung">Exportieren Sie im Online-Banking die Umsätze des Vereinskontos für das ganze Jahr als CSV-Datei, meist unter „Umsätze“ und „Exportieren“. Mehrere Dateien sind möglich, etwa für zwei Konten.</p>
+        <label class="ablage" id="ablage-konto">
+          <input type="file" id="datei-konto" accept=".csv,.txt,text/csv" multiple>
+          <span class="ablage-titel">Kontoauszug als CSV-Datei wählen</span>
+          <span class="ablage-text">oder die Datei hierher ziehen</span>
+        </label>
+        <p class="nebenbei">Noch keine Datei zur Hand? <button type="button" id="beispiel" class="leise">Mit Beispieldaten ausprobieren</button></p>
+        <div id="dateien" class="dateien"></div>
+        <p id="konto-meldung" class="meldung" role="status"></p>
+        <div id="zeile-jahr" class="zeile-jahr" hidden>
+          <label>Kalenderjahr der Bestätigungen <select id="jahr"></select></label>
+        </div>
+        <details class="hand">
+          <summary>Zuwendung von Hand eintragen</summary>
+          <p class="hilfe">Für Barspenden und für den Verzicht auf Erstattung von Aufwendungen, die nicht auf dem Kontoauszug stehen.</p>
+          <form id="form-hand" class="felder">
+            <label class="breit">Name
+              <input name="name" required>
+            </label>
+            <label>Tag der Zuwendung
+              <input type="date" name="datum" required>
+            </label>
+            <label>Betrag in Euro
+              <input name="betrag" inputmode="decimal" required placeholder="50,00">
+            </label>
+            <label>Art der Zuwendung
+              <select name="art"><option>Geldzuwendung</option><option>Mitgliedsbeitrag</option></select>
+            </label>
+            <label class="wahl"><input type="checkbox" name="verzicht"> <span>Verzicht auf Erstattung von Aufwendungen</span></label>
+            <div class="breit"><button class="knopf zweit" type="submit">Zuwendung hinzufügen</button></div>
+          </form>
+          <p id="hand-meldung" class="meldung" role="status"></p>
+        </details>
+      </section>
+
+      <section class="schritt" id="spender" aria-labelledby="spender-titel">
+        <span class="nr" aria-hidden="true">3</span>
+        <h2 id="spender-titel">Spender und Anschriften prüfen</h2>
+        <p class="erklaerung">Bestätigen Sie nur Spenden und, wo zulässig, Mitgliedsbeiträge. Zahlungen mit Gegenleistung wie Startgelder, Kursgebühren, Eintritt oder Sponsoring gehören nicht dazu. Kontoauszüge enthalten keine Anschriften: Tragen Sie sie hier ein oder laden Sie Ihre Mitgliederliste.</p>
+        <div class="werkzeuge">
+          <label class="knopf zweit klein">Mitgliederliste laden (CSV)<input type="file" id="datei-mitglieder" accept=".csv,.txt,text/csv" class="unsichtbar"></label>
+          <label class="wahl"><input type="checkbox" id="merken"> <span>Anschriften in diesem Browser merken</span></label>
+          <label class="suche">Suchen <input type="search" id="suche"></label>
+        </div>
+        <p id="spender-meldung" class="meldung" role="status"></p>
+        <ul id="liste" class="liste"></ul>
+        <p id="liste-leer" class="leer">Noch keine Zuwendungen. Laden Sie in Schritt 2 einen Kontoauszug oder tragen Sie eine Zuwendung von Hand ein.</p>
+      </section>
+
+      <section class="schritt" id="erstellen" aria-labelledby="erstellen-titel">
+        <span class="nr" aria-hidden="true">4</span>
+        <h2 id="erstellen-titel">Bestätigungen erstellen</h2>
+        <div class="felder">
+          <label>Ausstellungsdatum
+            <input type="date" id="ausstellung">
+          </label>
+        </div>
+        <p id="zusammenfassung" class="zusammenfassung" aria-live="polite"></p>
+        <ul id="probleme" class="probleme" aria-live="polite"></ul>
+        <div id="lizenz" class="lizenz" hidden>
+          <p id="lizenz-status"></p>
+          <p><a id="lizenz-kaufen" class="knopf zweit" href="#" hidden>Saisonlizenz kaufen</a></p>
+          <form id="lizenz-form" class="lizenz-form">
+            <label>Lizenzschlüssel aus der Kauf-E-Mail
+              <input id="lizenz-eingabe" autocomplete="off" spellcheck="false" placeholder="KH1-…">
+            </label>
+            <button class="knopf zweit" type="submit">Freischalten</button>
+          </form>
+          <p id="lizenz-meldung" class="meldung" role="status"></p>
+        </div>
+        <div class="aktionen">
+          <button type="button" id="alle-pdf" class="knopf">Alle als eine PDF-Datei herunterladen</button>
+          <button type="button" id="alle-zip" class="knopf zweit">Jede einzeln herunterladen (ZIP)</button>
+        </div>
+        <p class="hilfe">Die eine PDF-Datei ist zum Drucken gedacht, die ZIP-Datei mit einer PDF-Datei je Spender zum Versenden. Ihre Angaben sind fett gedruckt, damit Sie sie leicht prüfen können. Prüfen Sie jede Bestätigung und unterschreiben Sie sie eigenhändig. Die Gestaltung weicht von der amtlichen Vorlage ab, der Wortlaut nicht; das ist ausdrücklich erlaubt (<a href="#fragen">Häufige Fragen</a>).</p>
+        <p id="erstellen-meldung" class="meldung" role="status"></p>
+      </section>
+    </div>
+
+    <section class="fragen" id="fragen" aria-labelledby="fragen-titel">
+      <h2 id="fragen-titel">Häufige Fragen</h2>
+      <details>
+        <summary>Warum sieht die Bestätigung anders aus als die amtliche Vorlage?</summary>
+        <p>Weil die Finanzverwaltung das erlaubt. Nach dem BMF-Schreiben vom 7.11.2013 sind die amtlichen Muster in Wortlaut und Reihenfolge verbindlich, nicht in der Gestaltung. Rahmen, Ankreuzkästchen, Schrift und die Anordnung von Name und Anschrift darf der Verein selbst wählen, ebenso einen Briefkopf mit Logo. Die Bestätigung darf nur keine DIN-A4-Seite überschreiten; bei der Sammelbestätigung kommt die Anlage dazu.</p>
+        <p>Die Vorlage hat Lücken zum Ausfüllen. Der Kassenwart-Helfer setzt Ihre Angaben direkt in die Sätze ein, deshalb läuft der Text ohne Lücken durch.</p>
+      </details>
+      <details>
+        <summary>Erkennt das Finanzamt diese Bestätigungen an?</summary>
+        <p>Ja, wenn die Angaben stimmen und die Bestätigung unterschrieben ist. Wortlaut und Reihenfolge entsprechen den amtlichen Vorlagen, den Mustern 034122 (Einzelbestätigung, Stand 2013) und 034132 (Sammelbestätigung, Stand 2016). Wir gleichen sie Wort für Wort mit den Vorlagen der Finanzverwaltung ab.</p>
+        <p>Für die Richtigkeit der Angaben, also Zwecke, Bescheid, Spender und Beträge, ist der Verein als Aussteller verantwortlich. Prüfen Sie deshalb jede Bestätigung, bevor Sie sie unterschreiben.</p>
+      </details>
+      <details>
+        <summary>Welche Kontoauszüge kann ich laden?</summary>
+        <p>Die CSV-Exporte der Umsätze, wie sie die meisten Banken anbieten, zum Beispiel Sparkassen, Volks- und Raiffeisenbanken, ING oder DKB. Der Kassenwart-Helfer erkennt Datum, Name, Betrag und Verwendungszweck selbst. Falls eine Spalte falsch erkannt wird, können Sie sie nach dem Laden unter dem Dateinamen selbst zuordnen.</p>
+      </details>
+      <details>
+        <summary>Wann gibt es eine Einzel-, wann eine Sammelbestätigung?</summary>
+        <p>Hat jemand im gewählten Jahr einmal gespendet, erstellt der Kassenwart-Helfer eine Einzelbestätigung. Bei mehreren Zuwendungen wird es eine Sammelbestätigung über das Kalenderjahr mit einer Anlage, in der jede Zuwendung mit Datum, Art und Betrag steht.</p>
+      </details>
+      <details>
+        <summary>Darf ich Mitgliedsbeiträge bestätigen?</summary>
+        <p>Nur wenn Ihr Verein keinen der Zwecke fördert, für die § 10b Abs. 1 Satz 8 EStG den Abzug ausschließt: Sport, kulturelle Betätigungen, die in erster Linie der Freizeitgestaltung dienen, Heimatpflege und Heimatkunde sowie die Zwecke nach § 52 Abs. 2 Satz 1 Nr. 23 AO. Bei Fördervereinen von Schulen oder Kindergärten sind Mitgliedsbeiträge dagegen meist abziehbar.</p>
+      </details>
+      <details>
+        <summary>Was ist mit Sachspenden?</summary>
+        <p>Für Sachzuwendungen gibt es ein eigenes amtliches Muster. Der Kassenwart-Helfer erstellt derzeit nur Bestätigungen über Geldzuwendungen und Mitgliedsbeiträge, einschließlich des Verzichts auf Erstattung von Aufwendungen.</p>
+      </details>
+      <details>
+        <summary>Wo werden meine Daten gespeichert?</summary>
+        <p>Nirgends, solange Sie es nicht wünschen. Kontoauszüge, Spender und Beträge werden nur im Browser verarbeitet und nicht übertragen. Wenn Sie die Häkchen bei „Vereinsangaben speichern“ oder „Anschriften merken“ setzen, legt der Browser diese Angaben auf Ihrem Gerät ab, damit Sie sie im nächsten Jahr wieder haben.</p>
+        <p><button type="button" id="daten-loeschen" class="leise">Gespeicherte Daten in diesem Browser löschen</button></p>
+      </details>
+      <details>
+        <summary>Was kostet der Kassenwart-Helfer?</summary>
+        <p>Derzeit nichts. Sie brauchen auch kein Konto und keine Anmeldung.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="fuss">
+    <p>Der Kassenwart-Helfer ist ein Werkzeug für Kassenwarte und keine Steuerberatung. Bei Zweifelsfällen hilft Ihr Finanzamt oder eine Steuerberaterin.</p>
+    <p><a href="../spendenbescheinigung-verein.html">Spendenbescheinigung richtig ausfüllen</a> <a href="../sammelbestaetigung.html">Sammelbestätigung</a> <a href="../spendenbescheinigung-ab-welchem-betrag.html">Ab welchem Betrag?</a> <a href="../mitgliedsbeitrag-absetzbar.html">Mitgliedsbeiträge absetzbar?</a></p>
+    <p><a href="../impressum.html">Impressum</a> <a href="../datenschutz.html">Datenschutz</a> <a href="../lizenzen.txt">Lizenzen</a></p>
+  </footer>
+</body>
+</html>
