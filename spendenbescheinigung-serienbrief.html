@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Spendenbescheinigungen als Serienbrief mit Word und Excel | Kassenwart-Helfer</title>
+  <meta name="description" content="So erstellen Vereine Spendenbescheinigungen als Serienbrief aus einer Excel-Liste: Aufbau der Tabelle, Seriendruckfelder in Word, Betrag in Buchstaben und Sammelbestätigungen. Mit den typischen Stolperstellen.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="canonical" href="https://kassenwart-helfer.de/spendenbescheinigung-serienbrief.html">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="kopf">
+    <a class="marke" href="./">Kassenwart-Helfer</a>
+    <nav aria-label="Seiten"><a href="./">Zum Werkzeug</a><a href="spendenbescheinigung-verein.html">Spendenbescheinigung</a><a href="sammelbestaetigung.html">Sammelbestätigung</a></nav>
+  </header>
+  <main class="text">
+    <h1>Spendenbescheinigungen als Serienbrief mit Word und Excel</h1>
+    <p class="lead">Viele Kassenwarte erstellen die Bestätigungen am Jahresanfang als Serienbrief: eine Excel-Tabelle mit den Spendern, eine Word-Vorlage mit dem amtlichen Wortlaut, und Word setzt beides zusammen. Das funktioniert. Aufwendig sind drei Dinge: die Beträge aus dem Kontoauszug je Spender zusammenzurechnen, der Betrag in Buchstaben und die Anlage der Sammelbestätigung.</p>
+
+    <h2>1. Die Tabelle in Excel</h2>
+    <p>Jede Zeile der Tabelle wird später ein Brief. Deshalb gehört in jede Zeile eine Bestätigung, nicht eine Buchung. Bewährt haben sich diese Spalten:</p>
+    <ul>
+      <li><strong>Name, Straße, PLZ, Ort</strong> des Spenders, so wie sie auf der Bestätigung stehen sollen</li>
+      <li><strong>Betrag</strong> und <strong>Betrag in Buchstaben</strong></li>
+      <li><strong>Tag der Zuwendung</strong>, bei Sammelbestätigungen stattdessen der <strong>Zeitraum</strong>, etwa „01.01.2026 bis 31.12.2026“</li>
+      <li><strong>Art</strong>: Geldzuwendung oder Mitgliedsbeitrag</li>
+      <li><strong>Verzicht</strong> auf Erstattung von Aufwendungen: ja oder nein</li>
+    </ul>
+    <p>Die Beträge kommen aus dem Kontoauszug. Exportieren Sie die Umsätze des Jahres als CSV-Datei, filtern Sie die Eingänge und rechnen Sie sie je Spender zusammen, zum Beispiel mit einer PivotTable oder mit <code>SUMMEWENN</code>. Achten Sie dabei auf Spender, die mit unterschiedlicher Schreibweise oder von zwei Konten überwiesen haben: Sonst entstehen zwei Bestätigungen statt einer.</p>
+    <p><strong>Zahlen und Daten als Text.</strong> Word übernimmt im Seriendruck oft nicht das, was Excel anzeigt, sondern den Wert dahinter: aus 250,00 wird 250, aus dem 15.01.2026 ein Datum im amerikanischen Format. Am sichersten sind Hilfsspalten, die den Text fertig formatieren: <code>=TEXT(E2;"#.##0,00")</code> für den Betrag und <code>=TEXT(D2;"TT.MM.JJJJ")</code> für das Datum.</p>
+    <p><strong>Der Betrag in Buchstaben</strong> gehört auf jede Bestätigung, etwa „zweihundertfünfzig Euro“. Excel hat dafür keine eingebaute Funktion. Es bleiben lange Formeln, ein Makro oder Abtippen, und jeder Tippfehler landet auf einer Bestätigung, die der Verein unterschreibt.</p>
+
+    <h2>2. Die Vorlage in Word</h2>
+    <p>Grundlage ist der Wortlaut der <a href="spendenbescheinigung-vorlage.html">amtlichen Vorlage</a>, Satz für Satz übernommen. Gestaltung und Briefkopf wählt der Verein selbst; die Bestätigung darf aber höchstens eine DIN-A4-Seite lang sein. So verbinden Sie Vorlage und Tabelle:</p>
+    <ol>
+      <li>In Word unter <strong>Sendungen</strong> auf <strong>Seriendruck starten</strong> und <strong>Briefe</strong> klicken.</li>
+      <li>Unter <strong>Empfänger auswählen</strong> mit <strong>Vorhandene Liste verwenden</strong> die Excel-Datei und das Tabellenblatt wählen.</li>
+      <li>An den passenden Stellen mit <strong>Seriendruckfeld einfügen</strong> Name, Anschrift, Betrag, Betrag in Buchstaben und Datum einsetzen.</li>
+      <li>Was je Spender wechselt, etwa „Ja“ oder „Nein“ beim Verzicht auf Erstattung von Aufwendungen, setzen Sie mit <strong>Regeln</strong> und <strong>Wenn… Dann… Sonst…</strong> ein.</li>
+      <li>Mit <strong>Vorschau Ergebnisse</strong> ein paar Spender durchblättern, dann unter <strong>Fertig stellen und zusammenführen</strong> die Briefe erzeugen.</li>
+    </ol>
+    <p>Angaben, die für alle gleich sind, also Name und Anschrift des Vereins, die steuerbegünstigten Zwecke und die Daten des Freistellungsbescheids, stehen fest in der Vorlage. Prüfen Sie jedes Jahr, ob der Bescheid noch reicht: Am Ausstellungstag darf der Freistellungsbescheid höchstens fünf Jahre und die Feststellung nach § 60a AO höchstens drei Jahre zurückliegen, taggenau gerechnet (§ 63 Abs. 5 AO).</p>
+    <p>Unterschreiben Sie jede Bestätigung von Hand. Ohne Unterschrift und per E-Mail ist sie nur erlaubt, wenn der Verein ein maschinelles Verfahren beim Finanzamt angezeigt hat; mehr dazu in den <a href="./#email">Fragen zum Werkzeug</a>.</p>
+
+    <h2>3. Sammelbestätigungen</h2>
+    <p>Hat jemand im Jahr mehrmals gezahlt, etwa monatlich, ist eine <a href="sammelbestaetigung.html">Sammelbestätigung</a> üblich. Sie nennt den Gesamtbetrag und den Zeitraum, und in einer Anlage steht jede Zuwendung mit Datum, Art, Verzicht (ja/nein) und Betrag, darunter die Gesamtsumme.</p>
+    <p>Diese Anlage ist der schwierigste Teil im Serienbrief. Im normalen Serienbrief entsteht aus jeder Tabellenzeile ein Brief; eine Liste mit unterschiedlich vielen Zeilen je Spender sieht Word nicht vor. Übliche Auswege sind eine sehr breite Tabelle mit festen Spalten für die erste, zweite, dritte Zuwendung und so weiter, oder die Anlagen werden getrennt erstellt und von Hand den richtigen Bestätigungen zugeordnet. Beides kostet Zeit, und gerade bei vielen Spendern schleichen sich Fehler ein.</p>
+
+    <h2>4. Vor dem Drucken prüfen</h2>
+    <ul>
+      <li><strong>Nur Zuwendungen des richtigen Jahres</strong>: Der Export enthält oft Buchungen vom Jahreswechsel.</li>
+      <li><strong>Keine Rücklastschriften und Erstattungen</strong>: Geld, das zurückging, ist keine Zuwendung.</li>
+      <li><strong>Keine Gegenleistungen</strong> wie Startgelder, Kursgebühren, Eintritt oder Sponsoring.</li>
+      <li><strong>Mitgliedsbeiträge nur, wenn sie abziehbar sind</strong>: Bei Vereinen, die etwa den Sport oder kulturelle Freizeitbetätigungen fördern, sind sie es nicht (§ 10b Abs. 1 Satz 8 EStG). Mehr dazu unter <a href="mitgliedsbeitrag-absetzbar.html">Mitgliedsbeiträge absetzbar?</a></li>
+      <li><strong>Betrag in Ziffern und Buchstaben stimmen überein.</strong></li>
+    </ul>
+
+    <h2>Schneller: direkt aus dem Kontoauszug</h2>
+    <p>Der Kassenwart-Helfer erledigt die Schritte 1 bis 3 in einem Durchgang: Sie laden den Kontoauszug als CSV- oder Excel-Datei, so wie ihn das Online-Banking liefert. Das Werkzeug fasst die Zahlungen je Spender zusammen, nach IBAN und Name, schreibt den Betrag in Buchstaben und erstellt bei mehreren Zahlungen die Sammelbestätigung mit vollständiger Anlage. Startgelder, Erstattungen und ähnliche Eingänge werden nicht vorausgewählt, und ein zu alter Freistellungsbescheid fällt vor dem Drucken auf. Heraus kommen alle Bestätigungen als PDF, jede auf einer Seite nach amtlichem Muster, bereit zum Unterschreiben.</p>
+    <aside class="hinweisbox">
+      <p><strong>Ohne Serienbrief zu allen Bestätigungen.</strong> Kontoauszug laden, Spenden auswählen, Anschriften ergänzen: Einzel- und Sammelbestätigungen nach amtlichem Muster als PDF. Ohne Anmeldung, die Daten bleiben in Ihrem Browser. Fünf Bestätigungen je Jahr sind kostenlos, für alle Spender eines Jahres gibt es die Saisonlizenz für 39 €.</p>
+      <p><a class="knopf" href="./#verein">Bestätigungen erstellen</a></p>
+    </aside>
+    <p class="stand">Stand: November 2026. Dieser Text erklärt die Regeln, er ersetzt keine Steuerberatung.</p>
+  </main>
+  <footer class="fuss">
+    <p><a href="impressum.html">Impressum</a> <a href="datenschutz.html">Datenschutz</a></p>
+  </footer>
+</body>
+</html>
